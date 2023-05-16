@@ -20,3 +20,6 @@ use App\Http\Controllers\AuthController;
 Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::get('register', [AuthController::class, 'registration'])->name('register');
 Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('post-registration');
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('post-login'); 
+
+Route::get('get-members', [AuthController::class, 'getMembers'])->name('get-members');
