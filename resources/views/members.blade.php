@@ -15,6 +15,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Address</th>
+                                <th>Action</th>
                             </tr>
 
                             @foreach($members as $member)
@@ -22,6 +23,20 @@
                                 <td>{{$member['name']}}</td>
                                 <td>{{$member['email']}}</td>
                                 <td>{{$member['address']}}</td>
+                                <td>
+                                    <button type="button">
+                                        <a style="text-decoration:none; color:balck;" href={{"insert"}}>Insert
+                                        </a>
+                                    </button>
+                                    <button type="button">
+                                        <a style="text-decoration:none; color:balck;" href={{"edit/".$member['id']}}>Edit
+                                        </a>
+                                    </button>
+                                    <button type="button">
+                                        <a style="text-decoration:none; color:balck;" href={{"insert"}}>Delete
+                                        </a>
+                                    </button>
+                                </td>    
                                 </tr>
                             @endforeach    
 
