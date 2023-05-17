@@ -8,19 +8,22 @@
     
 <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
     <div class="container">
-        <a class="navbar-brand" href="#">Member Login</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-   
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <h2>Member Login</h2>
+        <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
+                @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
-                    </li>
+                    </li> 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('register') }}">Register</a>
                     </li>
+                @endguest       
+                @auth  
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('logout') }}">logout</a>
+                    </li>
+                @endauth  
             </ul>
         </div>
     </div>
@@ -49,16 +52,6 @@
         .navbar-brand , .nav-link, .my-form, .login-form
         {
             font-family: Raleway, sans-serif;
-        }
-        .my-form
-        {
-            padding-top: 1.5rem;
-            padding-bottom: 1.5rem;
-        }
-        .my-form .row
-        {
-            margin-left: 0;
-            margin-right: 0;
         }
         .login-form
         {

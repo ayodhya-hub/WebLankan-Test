@@ -22,6 +22,7 @@ Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::get('register', [AuthController::class, 'registration'])->name('register');
 Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('post-registration');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('post-login'); 
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('get-members', [MemeberController::class, 'getMembers'])->name('get-members');
 Route::get("edit/{id}",[MemeberController::class,'edit'])->name('edit');

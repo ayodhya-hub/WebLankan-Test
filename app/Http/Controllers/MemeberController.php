@@ -9,7 +9,7 @@ class MemeberController extends Controller
 {
     //get members list
     public function getMembers(){
-        $members = Member::paginate(3);
+        $members = Member::orderBy('id','desc')->paginate(3);
         return view('members',['members'=>$members]);
     }
 
@@ -49,7 +49,7 @@ class MemeberController extends Controller
     public function postInsert(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|alpha',
             'email' => 'required|email|unique:members',
             'address' => 'required',
         ]);

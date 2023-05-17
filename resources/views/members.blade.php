@@ -7,10 +7,12 @@
           <div class="col-md-8">
               <div class="card">
                   <div class="card-header">Member Details</div>
-                  <div class="card-body">
+                    <div class="card-body">
                         <form action="{{ route('search') }}" method="POST">
-                            <input type="text" name="search_text" id = 'search_text' />
-                            <button type="submit">Search</button>
+                            <div class="serch-box">
+                                <input type="text" name="search_text" placeholder="Search using email" />
+                                <button type="submit">Search</button></br></br>
+                            </div>    
                             @csrf
                             <table align="center" border = 1> 
                                 <tr >
@@ -40,7 +42,7 @@
                                 @endforeach    
 
                             </table>
-                      </form>
+                       </form>
                       <span >{{$members->links()}}</span>
                   </div>
               </div>
@@ -54,6 +56,10 @@
     .w-5{
             display:none;
         }
+    .serch-box{
+        position: relative;
+         left:600px;
+    }    
 </style>
 
 <script>

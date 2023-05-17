@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Hash;
 use Illuminate\Support\Facades\Auth;
+use Session;
 
 class AuthController extends Controller
 {
@@ -30,7 +31,7 @@ class AuthController extends Controller
     public function postRegistration(Request $request)
     {  
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|alpha',
             'email' => 'required|email|unique:users',
             'contact_no' => 'required|digits_between:9,12',
             'address' => 'required',
@@ -63,6 +64,14 @@ class AuthController extends Controller
            return redirect("get-members");
         }
   
+        return redirect("login");
+    }
+
+    //logout
+    public function logout()
+    {
+        Session::flush();
+        Auth::logout();
         return redirect("login");
     }
     
