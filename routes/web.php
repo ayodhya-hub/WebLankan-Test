@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MemeberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('login', [AuthController::class, 'login'])->name('login');
+Route::get('register', [AuthController::class, 'registration'])->name('register');
+Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('post-registration');
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('post-login'); 
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('get-members', [MemeberController::class, 'getMembers'])->name('get-members');
+Route::get("edit/{id}",[MemeberController::class,'edit'])->name('edit');
+Route::post("post-edit",[MemeberController::class,'postEdit'])->name('post-edit');
+Route::get("insert",[MemeberController::class,'insert'])->name('insert');
+Route::post('post-insert', [MemeberController::class, 'postInsert'])->name('post-insert'); 
+Route::post('search', [MemeberController::class, 'search'])->name('search');
+Route::get("delete/{id}", [MemeberController::class, 'delete'])->name('delete');
+
