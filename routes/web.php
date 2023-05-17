@@ -28,4 +28,5 @@ Route::get("edit/{id}",[MemeberController::class,'edit'])->name('edit');
 Route::post("post-edit",[MemeberController::class,'postEdit'])->name('post-edit');
 Route::get("insert",[MemeberController::class,'insert'])->name('insert');
 Route::post('post-insert', [MemeberController::class, 'postInsert'])->name('post-insert'); 
+Route::post('search', [MemeberController::class, 'search'])->name('search');
 

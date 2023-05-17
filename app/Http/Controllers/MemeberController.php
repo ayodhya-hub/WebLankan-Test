@@ -61,4 +61,11 @@ class MemeberController extends Controller
         $data->save();
         return redirect("get-members");
     }
+
+    //search process
+    public function search(Request $request)
+    {
+        $members = Member::where('email', 'Like', '%' . $request->search_text . '%')->paginate(3);
+        return view('members',['members'=>$members]);
+    }
 }
