@@ -68,4 +68,12 @@ class MemeberController extends Controller
         $members = Member::where('email', 'Like', '%' . $request->search_text . '%')->paginate(3);
         return view('members',['members'=>$members]);
     }
+
+    //member deletion
+    function delete($id)
+    {
+        $data=Member::find($id);
+        $data->delete();
+        return redirect("get-members");
+    }
 }

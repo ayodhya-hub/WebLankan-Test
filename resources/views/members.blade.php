@@ -22,23 +22,20 @@
 
                                 @foreach($members as $member)
                                     <tr >
-                                    <td>{{$member['name']}}</td>
-                                    <td>{{$member['email']}}</td>
-                                    <td>{{$member['address']}}</td>
-                                    <td>
-                                        <button type="button">
-                                            <a style="text-decoration:none; color:balck;" href={{"insert"}}>Insert
-                                            </a>
-                                        </button>
-                                        <button type="button">
-                                            <a style="text-decoration:none; color:balck;" href={{"edit/".$member['id']}}>Edit
-                                            </a>
-                                        </button>
-                                        <button type="button">
-                                            <a style="text-decoration:none; color:balck;" href={{"insert"}}>Delete
-                                            </a>
-                                        </button>
-                                    </td>    
+                                        <td>{{$member['name']}}</td>
+                                        <td>{{$member['email']}}</td>
+                                        <td>{{$member['address']}}</td>
+                                        <td>
+                                            <button type="button">
+                                                <a style="text-decoration:none; color:black;" href={{"insert"}}>Insert
+                                                </a>
+                                            </button>
+                                            <button type="button">
+                                                <a style="text-decoration:none; color:black;" href={{"edit/".$member['id']}}>Edit
+                                                </a>
+                                            </button>
+                                            <button type="button" onclick='deleteFuction({{$member['id']}})'>Delete</button>
+                                        </td>    
                                     </tr>
                                 @endforeach    
 
@@ -58,3 +55,21 @@
             display:none;
         }
 </style>
+
+<script>
+    function deleteFuction(id) {
+        console.log(id);
+        $.ajax(
+            {
+                url: "delete/"+id,
+                type: 'GET',
+                data: {
+                    "id": id,
+                },
+                success: function (){
+                    console.log("it Works");
+                    window.location = '/get-members';
+                }
+        });
+}
+</script>
