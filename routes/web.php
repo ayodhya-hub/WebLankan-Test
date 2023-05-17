@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MemeberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,4 @@ Route::get('register', [AuthController::class, 'registration'])->name('register'
 Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('post-registration');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('post-login'); 
 
-Route::get('get-members', [AuthController::class, 'getMembers'])->name('get-members');
+Route::get('get-members', [MemeberController::class, 'getMembers'])->name('get-members');

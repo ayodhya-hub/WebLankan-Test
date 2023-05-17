@@ -65,9 +65,5 @@ class AuthController extends Controller
   
         return redirect("login");
     }
-
-    public function getMembers(){
-        return view('members');
-    }
     
 }
